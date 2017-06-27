@@ -83,5 +83,8 @@ func GetPolicyDocument(policy *iam.Policy) string {
 }
 
 func main() {
-	// policies := ListPolicies()
+	policies := ListPolicies()
+	for _, policy := range policies {
+		WritePolicyToFile(policy)
+	}
 }
