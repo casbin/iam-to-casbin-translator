@@ -23,12 +23,19 @@ func WriteFile(path string, text string) error {
 	return nil
 }
 
+func WritePolicyToFile(policy *iam.Policy) {
+	document := DecodePolicy(GetPolicyDocument(policy))
+	fmt.Print(document)
+	path := "policy/" + *policy.PolicyName + ".json"
+	WriteFile(path, document)
+}
+
 func DecodePolicy(text string) string {
 	text, _ = url.QueryUnescape(text)
 	return text
 }
 
-func ListPolicies() {
+func ListPolicies() []*iam.Policy {
 	sess := session.Must(session.NewSession())
 
 	svc := iam.New(sess)
@@ -44,11 +51,12 @@ func ListPolicies() {
 		// Print the error, cast err to awserr.Error to get the Code and
 		// Message from an error.
 		fmt.Println(err.Error())
-		return
+		return nil
 	}
 
 	// Pretty-print the response data.
 	fmt.Println(resp)
+	return resp.Policies
 }
 
 func GetPolicyDocument(policy *iam.Policy) string {
@@ -75,5 +83,5 @@ func GetPolicyDocument(policy *iam.Policy) string {
 }
 
 func main() {
-	ListPolicies()
+	// policies := ListPolicies()
 }

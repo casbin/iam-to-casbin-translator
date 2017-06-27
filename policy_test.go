@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"testing"
 
 	"github.com/aws/aws-sdk-go/aws"
@@ -10,10 +9,10 @@ import (
 
 func TestGetPolicy(t *testing.T) {
 	policy := &iam.Policy{
+		PolicyName: aws.String("AWSAccountUsageReportAccess"),
 		Arn: aws.String("arn:aws:iam::aws:policy/AWSAccountUsageReportAccess"),
 		DefaultVersionId: aws.String("v1"),
 	}
 
-	document := DecodePolicy(GetPolicyDocument(policy))
-	fmt.Print(document)
+	WritePolicyToFile(policy)
 }
