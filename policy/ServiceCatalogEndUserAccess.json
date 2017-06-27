@@ -1,0 +1,32 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "catalog-user:*",
+                "s3:GetObject",
+                "servicecatalog:DescribeProduct",
+                "servicecatalog:DescribeProductView",
+                "servicecatalog:DescribeProvisioningParameters",
+                "servicecatalog:ListLaunchPaths",
+                "servicecatalog:SearchProducts"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "servicecatalog:ListRecordHistory",
+                "servicecatalog:DescribeRecord",
+                "servicecatalog:ScanProvisionedProducts"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "servicecatalog:userLevel": "self"
+                }
+            }
+        }
+    ]
+}

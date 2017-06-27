@@ -1,0 +1,24 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "elastictranscoder:*",
+        "cloudfront:*",
+        "s3:List*",
+        "s3:Put*",
+        "s3:Get*",
+        "s3:*MultipartUpload*",
+        "iam:CreateRole",
+        "iam:GetRolePolicy",
+        "iam:PassRole",
+        "iam:PutRolePolicy",
+        "iam:List*",
+        "sns:CreateTopic",
+        "sns:List*"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    }
+  ]
+}

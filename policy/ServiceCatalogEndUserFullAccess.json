@@ -1,0 +1,43 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "catalog-user:*",
+                "cloudformation:CreateStack",
+                "cloudformation:DeleteStack",
+                "cloudformation:DescribeStackEvents",
+                "cloudformation:DescribeStacks",
+                "cloudformation:GetTemplateSummary",
+                "cloudformation:SetStackPolicy",
+                "cloudformation:ValidateTemplate",
+                "cloudformation:UpdateStack",
+                "servicecatalog:DescribeProduct",
+                "servicecatalog:DescribeProductView",
+                "servicecatalog:DescribeProvisioningParameters",
+                "servicecatalog:ListLaunchPaths",
+                "servicecatalog:ProvisionProduct",
+                "servicecatalog:SearchProducts",
+                "s3:GetObject"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "servicecatalog:DescribeRecord",
+                "servicecatalog:ListRecordHistory",
+                "servicecatalog:ScanProvisionedProducts",
+                "servicecatalog:TerminateProvisionedProduct",
+                "servicecatalog:UpdateProvisionedProduct"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "servicecatalog:userLevel": "self"
+                }
+            }
+        }
+    ]
+}

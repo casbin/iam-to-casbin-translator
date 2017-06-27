@@ -1,0 +1,33 @@
+{  
+   "Version":"2012-10-17",
+   "Statement":[  
+      {  
+         "Effect":"Allow",
+         "Action":[  
+            "catalog-admin:*",
+            "catalog-user:*",
+            "cloudformation:CreateStack",
+            "cloudformation:CreateUploadBucket",
+            "cloudformation:DeleteStack",
+            "cloudformation:DescribeStackEvents",
+            "cloudformation:DescribeStacks",
+            "cloudformation:GetTemplateSummary",
+            "cloudformation:SetStackPolicy",
+            "cloudformation:ValidateTemplate",
+            "cloudformation:UpdateStack",
+            "iam:GetGroup",
+            "iam:GetRole",
+            "iam:GetUser",
+            "iam:ListGroups",
+            "iam:ListRoles",
+            "iam:ListUsers",
+            "iam:PassRole",
+            "s3:CreateBucket",
+            "s3:GetObject",
+            "s3:PutObject",
+            "servicecatalog:*"
+         ],
+         "Resource":"*"
+      }
+   ]
+}
